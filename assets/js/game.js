@@ -37,10 +37,9 @@ var fight = function(enemyName) {
     // Alert players that they are starting the round
   // window.alert("Welcome to Robot Gladiators!");
 
-  
-
-  // if player choses to fight, fight
-  if (promptFight === "fight" || promptFight === "FIGHT") {
+  while (enemyHealth>0){
+ // if player choses to fight, fight
+ if (promptFight === "fight" || promptFight === "FIGHT") {
     // remove enemy's health by subtracting the amount set in the playerAttack variable
     enemyHealth = enemyHealth - playerAttack;
     console.log(
@@ -84,12 +83,22 @@ var fight = function(enemyName) {
       // if player did not chose 1 or 2 in prompt
     } else {
       window.alert("You need to pick a valid option. Try again!");
-    }
+    } 
+    
+
+
+
   };
 
-  // run fight function to start game
-  // fight();
+  
 
-  for(var i = 0; i < enemyNames.length; i++) {
-    fight(enemyNames[i]);
+
+  
   }
+  // run fight function to start game
+  for(var i = 0; i < enemyNames.length; i++) {
+    var pickedEnemyName = enemyNames[i];
+    enemyHealth = 50;
+    fight(pickedEnemyName);
+  }
+       
