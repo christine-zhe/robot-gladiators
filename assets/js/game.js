@@ -8,12 +8,6 @@ var playerName = 'Clank McKrank';
 // var playerName = window.prompt("What is your robot's name?");
 // ask player if they'd like to fight or run
 
-var playerHealth = 100;
-var playerAttack = 10;
-var playerMoney = 10;
-
-// You can also log multiple values at once like this
-
 
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
@@ -24,7 +18,7 @@ var enemyAttack = 12;
 // console.log(enemyNames[1]);
 // console.log(enemyNames[2]);
 
-console.log(enemyNames.length);
+// console.log(enemyNames.length);
 
 for(var i = 0; i < enemyNames.length; i++) {
     console.log(enemyNames[i]);
@@ -88,24 +82,55 @@ var fight = function(enemyName) {
     }
   }
 
-  }
+  };
+
+var startGame = function() {
+
+    playerHealth = 100;
+    playerAttack = 10;
+    playerMoney = 10;
+
+    for(var i = 0; i < enemyNames.length; i++) {
+        if (playerHealth > 0){
+            window.alert("Welcome to Robot Gladiators! Round " + ( i + 1 ) );
+    
+            var pickedEnemyName = enemyNames[i];
+            enemyHealth = 50;
+            fight(pickedEnemyName);
+        }
+        else {
+            window.alert("You have lost your robot in battle! Game Over!");
+            break;
+          }
+      
+        }
+        var endGame = function() {
+
+            if (playerHealth > 0 ) {
+                window.alert("The game has now ended. Let's see how you did!");
+            }
+          else {
+              window.alert("You've lost your robot in battle.");
+          }
+        var playAgainConfirm = window.confirm("Would you like to play again");
+          if (playAgainConfirm) {
+        startGame();
+          }
+        
+          else {
+              window.alert("Thank you for playing! Come back Soon");
+          }
+        };
+        // startGame();
+        endGame();
+};
+
+startGame();
+
+debugger;
 
 
-  for(var i = 0; i < enemyNames.length; i++) {
-    if (playerHealth>0){
-        window.alert("Welcome to Robot Gladiators! Round " + ( i + 1 ) );
-    }
-    else {
-        window.alert("You have lost your robot in battle! Game Over!");
-        break;
-      }
-    var pickedEnemyName = enemyNames[i];
-    enemyHealth = 50;
-    fight(pickedEnemyName);
-    }
-
-
-
+// start the game when the page loads
 
 
 //  // if player choses to fight, fight
